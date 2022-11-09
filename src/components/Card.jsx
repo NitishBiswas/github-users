@@ -46,7 +46,7 @@ const Card = ({ name, id, profileImg, githubURL, url, mode, onChange }) => {
             <h2 className={mode ? 'text-white overflow-hidden' : 'overflow-hidden'}>{name}</h2>
             <div className='d-flex justify-content-around'>
                 <Button className='btn btn-primary' href={githubURL} target='_blank' rel="noreferrer">Github</Button>
-                <Button className='btn btn-info' as={Link} to={{ pathname: `/details/${name}` }} rel="noreferrer">Details</Button>
+                <Button className='btn btn-info' as={Link} to={{ pathname: `/github-users/details/${name}` }} rel="noreferrer">Details</Button>
             </div>
         </div>
     )

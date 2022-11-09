@@ -35,8 +35,8 @@ function App() {
       <NavComponent changeMode={setDarkMode} mode={darkMode} />
       <Routes>
         <Route path="/github-users" element={<Home mode={darkMode} />} />
-        <Route path="/favourites" element={<Favourites mode={darkMode} />} />
-        <Route path="/details/:name" element={<Details mode={darkMode} />} />
+        <Route path="/github-users/favourites" element={<Favourites mode={darkMode} />} />
+        <Route path="/github-users/details/:name" element={<Details mode={darkMode} />} />
       </Routes>
     </div>
   );

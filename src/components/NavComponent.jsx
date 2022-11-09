@@ -24,7 +24,7 @@ const NavComponent = ({ mode, changeMode }) => {
                 <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
                     <Nav>
                         <Nav.Link as={Link} to='/github-users'>Home</Nav.Link>
-                        <Nav.Link as={Link} to='/favourites'>Favourites</Nav.Link>
+                        <Nav.Link as={Link} to='/github-users/favourites'>Favourites</Nav.Link>
                     </Nav>
                     <NavDropdown title="Theme" id="basic-nav-dropdown" className={mode ? 'dropdown-bg' : ''} style={mode ? { color: '#bfbfbf' } : { color: '#838485' }}>
                         <NavDropdown.Item onClick={() => changeMode(window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false)}><CgDarkMode size={20} /> Default OS</NavDropdown.Item>
