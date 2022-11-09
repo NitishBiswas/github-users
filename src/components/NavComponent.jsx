@@ -16,14 +16,14 @@ const NavComponent = ({ mode, changeMode }) => {
     return (
         <Navbar bg={mode ? "dark" : "muted"} variant={mode ? "dark" : "light"} style={mode ? { boxShadow: '0px 1px 3px 0px #ffff' } : { boxShadow: '0px 1px 3px 0px #000000' }} expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to='/' className='align-items-center'>
+                <Navbar.Brand as={Link} to='/github-users' className='align-items-center'>
                     <VscGithub size={30} className='mx-2 align-self-center' />
                     <span>GitHub Users</span>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
                     <Nav>
-                        <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                        <Nav.Link as={Link} to='/github-users'>Home</Nav.Link>
                         <Nav.Link as={Link} to='/favourites'>Favourites</Nav.Link>
                     </Nav>
                     <NavDropdown title="Theme" id="basic-nav-dropdown" className={mode ? 'dropdown-bg' : ''} style={mode ? { color: '#bfbfbf' } : { color: '#838485' }}>
