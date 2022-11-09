@@ -2,37 +2,54 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logoImage {
+  height: 250px;
+  width: 250px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.itemCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.card-profile {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid rgb(177, 255, 99);
+}
+
+.dropdown-bg .dropdown-menu {
+  background-color: rgb(33,37,41);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown-bg .dropdown-menu a{
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+/* ================= Media Queries (Medium Devices) ================ */
+@media screen and (max-width: 1024px) {
+  .itemCard {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
   }
 }
+
+/* ================= Media Queries (Small Devices) ================ */
+@media screen and (max-width: 600px) {
+  .itemCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

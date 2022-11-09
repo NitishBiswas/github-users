@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from './pages/Home';
+import NavComponent from './components/NavComponent';
+import Favourites from './pages/Favourites';
+import Details from './pages/Details';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const mode = JSON.parse(localStorage.getItem('darkMode') || false);
+  const [darkMode, setDarkMode] = useState(mode);
+
+  const getMode = () => {
+    const mode = localStorage.getItem('darkMode');
+    if (mode === null) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode(true)
+      } else setDarkMode(false);
+    } else setDarkMode(JSON.parse(localStorage.getItem('darkMode')));
+  }
+
+  useEffect(() => {
+    getMode();
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? 'App bg-dark' : 'App'}>
+      <NavComponent changeMode={setDarkMode} mode={darkMode} />
+      <Routes>
+        <Route path="/" element={<Home mode={darkMode} />} />
+        <Route path="*" element={<Home mode={darkMode} />} />
+        <Route path="/favourites" element={<Favourites mode={darkMode} />} />
+        <Route path="/details/:name" element={<Details mode={darkMode} />} />
+      </Routes>
     </div>
   );
 }
